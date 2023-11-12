@@ -11,6 +11,19 @@
 #include "alloc-inl.h"
 #include "aflnet.h"
 
+#include "protobuf/InternalProtocol.pb-c.h"
+
+unsigned int* extract_response_codes_Fleet(unsigned char* buf, unsigned int buf_size, unsigned int* state_count_ref) {
+	int a = 0;
+	return &a;
+}
+
+region_t* extract_requests_Fleet(unsigned char* buf, unsigned int buf_size, unsigned int* region_count_ref) {
+	region_t *region = NULL;
+	return region;
+}
+
+
 // Protocol-specific functions for extracting requests and responses
 
 region_t* extract_requests_tftp(unsigned char* buf, unsigned int buf_size, unsigned int* region_count_ref)

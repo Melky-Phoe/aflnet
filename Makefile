@@ -30,10 +30,10 @@ SH_PROGS    = afl-plot afl-cmin afl-whatsup
 CFLAGS     ?= -O3 -funroll-loops
 CFLAGS     += -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -Wno-unused-result \
 	      -DAFL_PATH=\"$(HELPER_PATH)\" -DDOC_PATH=\"$(DOC_PATH)\" \
-	      -DBIN_PATH=\"$(BIN_PATH)\"
+	      -DBIN_PATH=\"$(BIN_PATH)\" -I/usr/local/include
 
 ifneq "$(filter Linux GNU%,$(shell uname))" ""
-  LDFLAGS  += -ldl -lgvc -lcgraph -lm -lcap
+  LDFLAGS  += -ldl -lgvc -lcgraph -lm -lcap -L/usr/local/lib -lprotobuf-c
 endif
 
 ifeq "$(findstring clang, $(shell $(CC) --version 2>/dev/null))" ""
